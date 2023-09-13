@@ -3,11 +3,6 @@ name: Node CI
 on: [push]
 
 jobs:
-  checkout:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
   hello_osreport_c:
     runs-on: ubuntu-latest
     container:
@@ -19,12 +14,10 @@ jobs:
       - name: Build
         run: make 
         working-directory: /hello_osreport_c
-  artifacts:
-    runs-on: ubuntu-latest
-    steps:
       - name: Archive .gci files
         uses: actions/upload-artifact@v3
         with:
           name: gci-files
           path: |
             */*.gci
+      
