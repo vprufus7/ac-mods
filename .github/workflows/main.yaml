@@ -7,15 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/vprufus7/ac-nesrom-gen:latest
-      volumes:
-        - ./hello_osreport_c:/hello_osreport_c
       options: --cpus 1
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Build
         run: make 
-        working-directory: /hello_osreport_c
+        working-directory: ./hello_osreport_c
       - name: Archive .gci files
         uses: actions/upload-artifact@v3
         with:
