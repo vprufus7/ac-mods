@@ -11,9 +11,8 @@ jobs:
         - ./hello_osreport_c:/hello_osreport_c
       options: --cpus 1
     steps:
-      - name: ls
-        run: ls 
-        working-directory: /hello_osreport_c
+      - name: Checkout repository
+        uses: actions/checkout@v3
       - name: Build
         run: make 
         working-directory: /hello_osreport_c
