@@ -1,0 +1,31 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/vprufus7/ac-nesrom-gen:latest
+      volumes:
+        - ./hello_osreport_c:/hello_osreport_c
+      options: --cpus 1
+      entrypoint: make
+      working_dir: /hello_osreport_c
+    steps:
+      - name: Compile hello_osreport_c
+        run: make
+  artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Archive .gci files
+        uses: actions/upload-artifact@v3
+        with:
+          name: gci-files
+          path: |
+            */*.gci

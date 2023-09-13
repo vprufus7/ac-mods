@@ -1,0 +1,9 @@
+---
+version: "2.1"
+services:
+  hello_osreport_c:
+    image: ghcr.io/vprufus7/ac-nesrom-gen:latest
+    volumes:
+      - ./hello_osreport_c:/hello_osreport_c
+    entrypoint: make
+    working_dir: /hello_osreport_c
