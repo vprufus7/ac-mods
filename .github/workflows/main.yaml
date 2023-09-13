@@ -8,18 +8,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-  build:
+  hello_osreport_c:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/vprufus7/ac-nesrom-gen:latest
       volumes:
         - ./hello_osreport_c:/hello_osreport_c
       options: --cpus 1
-      entrypoint: make
-      working_dir: /hello_osreport_c
     steps:
-      - name: Compile hello_osreport_c
-        run: make
+      - name: Build
+        run: make 
+        working-directory: /hello_osreport_c
   artifacts:
     runs-on: ubuntu-latest
     steps:
