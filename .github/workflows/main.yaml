@@ -11,9 +11,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Build
+      - name: Build hello_osreport_c
         run: make 
         working-directory: ./hello_osreport_c
+      - name: Build debug_printf_c
+        run: make 
+        working-directory: ./debug_printf_c
       - name: Archive .gci files
         uses: actions/upload-artifact@v3
         with:
