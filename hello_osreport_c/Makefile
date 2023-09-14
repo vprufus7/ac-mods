@@ -32,7 +32,7 @@ SOURCES		:=	source
 DATA		:=	data
 INCLUDES	:=
 GCI_BUILD       :=      gci_build.yaml
-GCI_NAME        :=      "hello"
+GCI_NAME        :=      "HELLO"
 
 #---------------------------------------------------------------------------------
 # GCI build binary
